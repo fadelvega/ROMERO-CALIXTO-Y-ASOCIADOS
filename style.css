@@ -1,0 +1,237 @@
+/* --- VARIABLES Y RESET --- */
+:root {
+    --navy: #0A192F;       /* Azul Profundo */
+    --gold: #D4AF37;       /* Dorado Premium */
+    --gold-dark: #b69225;  /* Dorado Oscuro para hover */
+    --white: #FFFFFF;
+    --gray-light: #F4F6F8;
+    --text-dark: #333333;
+    --text-gray: #666666;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    color: var(--text-dark);
+    background-color: var(--white);
+    line-height: 1.6;
+}
+
+h1, h2, h3, .serif-title { font-family: 'Cinzel', serif; }
+
+/* --- UTILIDADES --- */
+.container { width: 90%; max-width: 1200px; margin: 0 auto; }
+a { text-decoration: none; transition: 0.3s; }
+
+/* --- NAVBAR --- */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 5%;
+    background: var(--white);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+}
+
+.logo-container { display: flex; align-items: center; gap: 10px; }
+.nav-logo-img { height: 50px; width: auto; }
+.logo-text { font-family: 'Cinzel', serif; font-weight: 700; color: var(--navy); font-size: 1rem; line-height: 1.1; }
+.logo-text .subtitle { font-family: 'Montserrat', sans-serif; font-size: 0.7rem; letter-spacing: 2px; }
+
+.nav-menu { display: flex; list-style: none; gap: 25px; align-items: center; }
+.nav-menu a { color: var(--navy); font-weight: 500; font-size: 0.9rem; }
+.nav-menu a:hover { color: var(--gold); }
+.tag-new { font-size: 0.6rem; color: var(--gold); font-weight: bold; vertical-align: super; }
+
+.btn-gold-nav {
+    background-color: var(--gold);
+    color: var(--white);
+    padding: 10px 20px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    border-radius: 4px;
+}
+.btn-gold-nav:hover { background-color: var(--gold-dark); }
+
+/* --- HERO SECTION --- */
+.hero {
+    height: 85vh;
+    background-image: url('img/hero-bg.png'); /* TU IMAGEN DE FONDO */
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
+.hero-overlay {
+    background: linear-gradient(90deg, rgba(10,25,47,0.95) 0%, rgba(10,25,47,0.7) 100%);
+    width: 100%; height: 100%;
+    display: flex; align-items: center;
+}
+
+.hero-content h1 { color: var(--white); font-size: 3.5rem; line-height: 1.2; margin-bottom: 20px; }
+.hero-content p { color: #cfd8dc; font-size: 1.1rem; margin-bottom: 30px; max-width: 600px; }
+
+.cta-group { display: flex; gap: 15px; }
+
+.btn-main {
+    background-color: var(--gold); color: var(--white);
+    padding: 14px 28px; font-weight: 600; border-radius: 4px;
+}
+.btn-outline {
+    border: 2px solid var(--white); color: var(--white);
+    padding: 12px 28px; font-weight: 600; border-radius: 4px;
+}
+.btn-main:hover { background-color: var(--gold-dark); transform: translateY(-2px); }
+.btn-outline:hover { background-color: var(--white); color: var(--navy); }
+
+/* --- AUTHORITY SECTION --- */
+.authority { background-color: var(--gray-light); padding: 40px 0; text-align: center; }
+.auth-header h3 { font-size: 1.5rem; color: var(--navy); margin-bottom: 5px; }
+.auth-header p { color: var(--text-gray); font-size: 0.9rem; margin-bottom: 25px; }
+
+.logos-carousel {
+    display: flex; justify-content: center; gap: 40px; align-items: center; flex-wrap: wrap;
+}
+.logos-carousel img { height: 50px; opacity: 0.6; filter: grayscale(100%); transition: 0.3s; }
+.logos-carousel img:hover { opacity: 1; filter: grayscale(0%); transform: scale(1.05); }
+
+/* --- PROPUESTA DE VALOR --- */
+.profile-section { padding: 80px 0; background: var(--white); }
+.split-layout { display: flex; align-items: center; gap: 50px; }
+
+.image-col { flex: 1; position: relative; }
+.profile-img { width: 100%; border-radius: 4px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+.name-tag {
+    position: absolute; bottom: 20px; left: 0;
+    background-color: var(--navy); color: var(--white);
+    padding: 10px 20px; font-family: 'Cinzel', serif; font-size: 0.9rem;
+}
+
+.text-col { flex: 1.2; }
+.section-title { font-size: 2.2rem; color: var(--navy); margin-bottom: 20px; }
+.lead-text { font-size: 1.1rem; color: var(--text-dark); margin-bottom: 15px; }
+
+/* --- SERVICIOS --- */
+.services-section { padding: 80px 0; background: var(--white); }
+.center { text-align: center; margin-bottom: 50px; }
+
+.grid-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+
+/* Estilos base para todas las cards */
+.card {
+    background: var(--gray-light); padding: 40px 30px; text-align: center;
+    border-radius: 8px; transition: 0.3s; border: 1px solid transparent;
+    border-bottom: 4px solid transparent; /* Preparamos el borde para el hover */
+}
+
+/* Estilos para los elementos DENTRO de las cards normales */
+.icon-box { font-size: 3rem; color: var(--navy); margin-bottom: 20px; transition: 0.3s;}
+.card h3 { font-size: 1.2rem; margin-bottom: 15px; color: var(--navy); transition: 0.3s;}
+.card-desc { font-size: 0.9rem; color: var(--text-gray); transition: 0.3s;}
+
+
+/* --- CORRECCIÓN PARA LA CARD DE EN MEDIO (ACTIVE) --- */
+
+/* 1. El fondo y la forma de la tarjeta activa */
+.card.active-card {
+    background: var(--navy); /* Fondo Azul Marino */
+    transform: scale(1.05);  /* Un poco más grande siempre */
+    box-shadow: 0 10px 30px rgba(10,25,47,0.3); /* Sombra más pronunciada */
+    border-bottom: 4px solid var(--gold); /* Borde dorado fijo */
+}
+
+/* 2. Forzamos el color del TEXTO a blanco dentro de la activa */
+.card.active-card h3,
+.card.active-card .card-desc {
+    color: var(--white) !important;
+}
+
+/* 3. Forzamos el color del ICONO a dorado dentro de la activa */
+.card.active-card .icon-box {
+    color: var(--gold) !important;
+}
+
+
+/* Hover state para las cards normales (las de los lados) */
+.card:not(.active-card):hover {
+    transform: translateY(-5px);
+    border-bottom: 4px solid var(--gold);
+    background-color: #fff;
+}
+
+/* --- FORMULARIO / CURSOS --- */
+.lead-magnet-section { background-color: var(--gray-light); padding: 60px 0; }
+.split-magnet { display: flex; align-items: flex-start; gap: 40px; }
+
+.magnet-text { flex: 1; }
+.magnet-text h2 { font-size: 2rem; color: var(--navy); margin-bottom: 15px; }
+.magnet-text p { margin-bottom: 10px; }
+.small { font-size: 0.85rem; color: var(--text-gray); }
+
+.magnet-form { flex: 1; }
+.magnet-form input, .magnet-form textarea {
+    width: 100%; padding: 12px; margin-bottom: 10px;
+    border: 1px solid #ddd; border-radius: 4px; font-family: 'Montserrat', sans-serif;
+}
+.magnet-form textarea { height: 100px; resize: none; }
+
+.btn-gold-full {
+    width: 100%; background-color: var(--gold); color: var(--white);
+    border: none; padding: 12px; font-weight: bold; cursor: pointer; transition: 0.3s;
+}
+.btn-gold-full:hover { background-color: var(--gold-dark); }
+/* --- FOOTER --- */
+.main-footer { background-color: var(--navy); color: #8892b0; padding-top: 50px; font-size: 0.9rem; }
+.footer-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 30px; padding-bottom: 40px; }
+
+.footer-col h4 { color: var(--white); font-family: 'Cinzel', serif; margin-bottom: 20px; }
+.footer-col p { margin-bottom: 10px; }
+
+/* Iconos de contacto (teléfono, mail) */
+.footer-col i { width: 20px; color: var(--gold); } 
+
+/* REDES SOCIALES (Aquí estaba el fallo) */
+.socials {
+    margin-top: 20px; /* Separación del texto */
+}
+
+.socials i { 
+    font-size: 1.5rem; /* Un poco más grandes */
+    margin-right: 15px; 
+    cursor: pointer; 
+    transition: 0.3s;
+    color: var(--gold); /* FORZAMOS EL COLOR DORADO */
+}
+
+.socials i:hover { 
+    color: var(--white); 
+    transform: translateY(-3px); /* Pequeña animación al pasar el mouse */
+}
+
+/* MAPA */
+.map-col iframe { 
+    width: 100%; 
+    height: 250px; 
+    border-radius: 8px; 
+    opacity: 0.9; 
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3); 
+}
+
+.copyright {
+    border-top: 1px solid rgba(255,255,255,0.1);
+    text-align: center; padding: 20px; font-size: 0.8rem;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .navbar { flex-direction: column; gap: 15px; }
+    .nav-menu { display: none; } 
+    .hero-content h1 { font-size: 2rem; }
+    .split-layout, .split-magnet { flex-direction: column; }
+    .active-card { transform: none; }
+    .footer-grid { grid-template-columns: 1fr; }
+}
